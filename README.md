@@ -153,3 +153,4 @@ document.documentElement refers to the root <html> element of the document
 ```js
 document.documentElement.setAttribute("data-theme", theme);
 ```
+# amu-app
