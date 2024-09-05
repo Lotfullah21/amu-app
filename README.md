@@ -153,4 +153,44 @@ document.documentElement refers to the root <html> element of the document
 ```js
 document.documentElement.setAttribute("data-theme", theme);
 ```
-# amu-app
+
+## Daisy ui
+
+`group`, cool property for having transition effect on individual elements.
+
+```css
+	<Link
+						key={product.id}
+						to={`/products/${product.id}`}
+						className="p-8 rounded-lg flex flex-col sm:flex-row gap-y-4 flex-wrap bg-base-100 shadow-xl hover:shadow-2xl duration-300 group">
+						<img
+							src={img}
+							key={title}
+							className="h-32 w-32 rounded-lg sm:h-38 sm:w-38 object-cover group-hover:scale-105 transition duration-300"></img>
+					</Link>
+```
+
+## Getting the search params
+
+### Method-1
+
+```js
+const url = "/products";
+export const loader = async ({ request }) => {
+	const params = new URL(request.url).searchParams;
+	const search = params.get("search");
+	console.log(search);
+};
+```
+
+### Method-2
+
+## URLSearchParams Utility:
+
+URLSearchParams makes it easier to read, modify, and construct query strings without manually manipulating strings.
+Common methods include:
+
+- get(name): Gets the value of a specific query parameter.
+- set(name, value): Sets or updates a query parameter.
+- delete(name): Removes a specific query parameter.
+- toString(): Converts the parameters back to a query string.
