@@ -21,6 +21,7 @@ export const links = [
 		url: "cart",
 		text: "cart",
 	},
+
 	{
 		id: nanoid(),
 		url: "checkout",

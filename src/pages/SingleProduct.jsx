@@ -15,10 +15,10 @@ const SingleProduct = () => {
 	const { product } = useLoaderData();
 	const { image, price, title, description, colors, company } =
 		product.attributes;
+
 	const dollarsAmount = formatPrice(price);
 	const [productColor, setProductColor] = useState(colors[0]);
 	const [amount, setAmount] = useState(1);
-
 	const handleAmount = (e) => {
 		setAmount(parseInt(e.target.value));
 	};
@@ -31,15 +31,20 @@ const SingleProduct = () => {
 		price,
 		company,
 		productColor,
+		amount,
 	};
 	const dispatch = useDispatch();
+
+	const addToCart = () => {
+		dispatch(addItem({ product: cartProduct }));
+	};
 
 	return (
 		<section>
 			<div className="text-md breadcrumbs">
 				<ul>
 					<li>
-						<Link to="/">Home</Link>
+						f<Link to="/">Home</Link>
 					</li>
 					<li>
 						<Link to="/products">Products</Link>
@@ -101,9 +106,7 @@ const SingleProduct = () => {
 					</div>
 					{/* CART BTN */}
 					<div className="mt-10">
-						<button
-							className="btn btn-secondary btn-md"
-							onClick={() => console.log("HELLO")}>
+						<button className="btn btn-secondary btn-md" onClick={addToCart}>
 							Add to cart
 						</button>
 					</div>

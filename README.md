@@ -194,3 +194,73 @@ Common methods include:
 - set(name, value): Sets or updates a query parameter.
 - delete(name): Removes a specific query parameter.
 - toString(): Converts the parameters back to a query string.
+
+## Cart Reducers
+
+Initial setup
+
+```js
+const cartSlice = createSlice({
+	name: "cart",
+	initialState: getItemFromLocalStorage(),
+	reducers: {
+		addItem: (state, action) => {
+			const { product } = action.payload;
+			const item = state.cartItems.find((x) => {
+				if (x.id === product.id) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+			if (item) {
+				item.amount = item.amount + product.amount;
+			} else {
+				state.cartItems.push(product);
+			}
+			state.numItemsInCart = state.numItemsInCart + product.amount;
+			state.cartTotal = state.cartTotal + product.price * product.amount;
+			state.tax = 0.1 * state.cartTotal;
+			state.orderTotal = state.tax + state.cartTotal + state.shipping;
+			localStorage.setItem("cart", JSON.stringify(state));
+			toast.success("Item added");
+		},
+		clearCart: (state, action) => {},
+		removeItem: (state, action) => {},
+		editItem: (state, action) => {},
+```
+
+#### Theme Logic in Navbar
+
+```jsx
+const themes = {
+	cmyk: "cmyk",
+	light: "light",
+	business: "business",
+};
+
+const getThemeFromLocalStorage = () => {
+	return localStorage.getItem("theme") || themes.cmyk;
+};
+```
+
+#### Moving the toggle theme
+
+```jsx
+const getThemeFromLocalStorage = () => {
+	const theme = localStorage.getItem("theme") || themes.cmyk;
+	// adding to HTML element
+	document.documentElement.setAttribute("data-theme", theme);
+};
+
+const initialState = {
+	user: { username: "amu" },
+	theme: getThemeFromLocalStorage(),
+};
+```
+
+To have the toggle theme functionality in user login as well.
+
+## Action
+
+an "action" refers to an event or function that is triggered in response to user interactions or some lifecycle event. Actions can be used to update the state, call an API, or dispatch something via a state management tool like Redux.

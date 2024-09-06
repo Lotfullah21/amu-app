@@ -1,33 +1,21 @@
 import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import { FaBarsStaggered } from "react-icons/fa6";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
-
-const themes = {
-	cmyk: "cmyk",
-	light: "light",
-	business: "business",
-};
-
-const getThemeFromLocalStorage = () => {
-	return localStorage.getItem("theme") || themes.cmyk;
-};
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { toggleTheme } from "../features/user/userSlice";
 
 const Navbar = () => {
-	const [theme, setTheme] = useState(getThemeFromLocalStorage());
+	const dispatch = useDispatch();
 
 	const handleTheme = () => {
-		const { cmyk, business } = themes;
-		const newTheme = theme === business ? cmyk : business;
-		setTheme(newTheme);
+		dispatch(toggleTheme());
 	};
 
-	useEffect(() => {
-		document.documentElement.setAttribute("data-theme", theme);
-		localStorage.setItem("theme", theme);
-	}, [theme]);
+	const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
 
 	return (
 		<nav className="bg-base-200 ">
@@ -35,7 +23,7 @@ const Navbar = () => {
 				<div className="navbar-start">
 					{/* Logo */}
 					<NavLink to="/" className="hidden lg:flex btn btn-primary text-3xl">
-						HL
+						Amu
 					</NavLink>
 					{/* Drop down */}
 					<div className="dropdown">
@@ -76,7 +64,7 @@ const Navbar = () => {
 						<div className="indicator">
 							<BsCart3 className="w-6 h-6"></BsCart3>
 							<span className="badge badge-sm badge-primary indicator-item">
-								10
+								{numItemsInCart}
 							</span>
 						</div>
 					</NavLink>

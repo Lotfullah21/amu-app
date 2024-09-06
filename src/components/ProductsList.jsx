@@ -18,7 +18,6 @@ const ProductsGrid = () => {
 							src={img}
 							key={title}
 							className="h-40 w-40 rounded-lg sm:h-38 sm:w-38 object-cover group-hover:scale-105 transition duration-300"></img>
-
 						<div className="ml-0 sm:ml-20">
 							<h3 className="capitalize font-medium text-xl">{title}</h3>
 							<h4 className="capitalize font-medium text-neutral-content">
