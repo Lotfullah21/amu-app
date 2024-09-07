@@ -1,4 +1,5 @@
 import { combineSlices, createSlice } from "@reduxjs/toolkit";
+import { skipToken } from "@tanstack/react-query";
 import { json } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -28,7 +29,7 @@ const userSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		loginUser: (state, action) => {
-			const user = { ...action.payload.user, ...action.payload.jwt };
+			const user = { ...action.payload.user, token: action.payload.jwt };
 			state.user = user;
 			localStorage.setItem("user", JSON.stringify(user));
 		},
