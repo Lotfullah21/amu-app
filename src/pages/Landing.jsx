@@ -3,8 +3,14 @@ import customFetch from "../utils";
 
 const url = "/products/?featured=true";
 
-export const loader = async () => {
-	const response = await customFetch(url);
+const featuredProductQuery = {
+	queryKey: ["featuredProducts"],
+	queryFn: () => customFetch(url),
+};
+
+export const loader = (queryClient) => async () => {
+	// if the query is already in cached, grab the data right away from there.
+	const response = await queryClient.ensureQueryData(featuredProductQuery);
 	const products = response.data.data;
 	return { products };
 };

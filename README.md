@@ -1,4 +1,75 @@
-Create your project
+# My Project
+
+A React-based web application using Tailwind CSS, DaisyUI, Redux, React Query, and Axios for state management, styling, and API interactions. The app implements dynamic routing with React Router and manages themes and cart functionality.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Folder Structure](#folder-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**:
+
+   ```sh
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+   ```
+
+2. ## Install dependencies:
+
+```sh
+npm install
+
+```
+
+3. ## Start the development server:
+
+```sh
+npm run dev
+
+
+```
+
+## Folder Structure
+
+```sh
+.
+├── public
+├── src
+│   ├── components  # Reusable components like Navbar, Footer
+│   ├── pages       # Page components (e.g., Home, About, Product)
+│   ├── redux       # Redux slices and store
+│   ├── hooks       # Custom React hooks for fetching data, managing state
+│   ├── App.jsx     # Main App component
+│   ├── index.css   # Tailwind CSS imports
+│   └── main.jsx    # Application entry point
+├── tailwind.config.cjs  # Tailwind CSS configuration
+├── postcss.config.cjs   # PostCSS configuration
+└── package.json
+
+
+```
+
+## Technologies Used
+
+React: JavaScript library for building user interfaces
+Tailwind CSS: Utility-first CSS framework
+DaisyUI: Tailwind CSS-based component library
+Redux: State management library
+Axios: Promise-based HTTP client for API requests
+React Router: Declarative routing for React applications
+React Query: Asynchronous state management for data fetching
+react-toastify: Notifications for React applications
+
+### Few steps for completion of the project
 
 ```sh
 
