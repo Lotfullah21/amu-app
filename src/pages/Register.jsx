@@ -38,11 +38,7 @@ const Register = () => {
 				method="POST"
 				className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4">
 				<h4 className="text-center text-3xl font-bold">Register</h4>
-				<FormInput
-					type="text"
-					label="username"
-					name="username"
-					defaultValue="king"></FormInput>
+				<FormInput type="text" label="username" name="username"></FormInput>
 				<FormInput type="email" label="email" name="email"></FormInput>
 				<div className="relative">
 					<FormInput
