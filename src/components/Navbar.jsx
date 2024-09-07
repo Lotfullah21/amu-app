@@ -10,6 +10,17 @@ import { toggleTheme } from "../features/user/userSlice";
 
 const Navbar = () => {
 	const dispatch = useDispatch();
+	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+	// Function to toggle the dropdown
+	const toggleDropdown = () => {
+		setIsDropdownOpen(!isDropdownOpen);
+	};
+
+	// Close dropdown when a link is clicked
+	const closeDropdown = () => {
+		setIsDropdownOpen(false);
+	};
 
 	const handleTheme = () => {
 		dispatch(toggleTheme());
@@ -27,14 +38,20 @@ const Navbar = () => {
 					</NavLink>
 					{/* Drop down */}
 					<div className="dropdown">
-						<label tabIndex={0} className="btn btn-ghost lg:hidden">
+						<label
+							tabIndex={0}
+							className="btn btn-ghost lg:hidden"
+							onClick={toggleDropdown}>
 							<HiMiniBars3 className="w-6 h-6"></HiMiniBars3>
 						</label>
-						<ul
-							tabIndex={0}
-							className="menu dropdown-content mt-4 z-[1] p-8 shadow-lg bg-base-100 rounded-box w-80">
-							<NavLinks></NavLinks>
-						</ul>
+						{isDropdownOpen && (
+							<ul
+								tabIndex={0}
+								className="menu dropdown-content mt-4 z-[1] p-8 shadow-lg bg-base-100 rounded-box w-64"
+								onClick={closeDropdown}>
+								<NavLinks />
+							</ul>
+						)}
 					</div>
 				</div>
 				<div className="navbar-center hidden lg:flex">
