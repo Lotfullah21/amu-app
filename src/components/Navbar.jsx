@@ -47,7 +47,7 @@ const Navbar = () => {
 						{isDropdownOpen && (
 							<ul
 								tabIndex={0}
-								className="menu dropdown-content mt-4 z-[1] p-8 shadow-lg bg-base-100 rounded-box w-64"
+								className="menu dropdown-content mt-4 z-[1] p-6 shadow-lg bg-base-100 rounded-box w-64"
 								onClick={closeDropdown}>
 								<NavLinks />
 							</ul>
