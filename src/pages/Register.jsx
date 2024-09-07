@@ -43,17 +43,12 @@ const Register = () => {
 					label="username"
 					name="username"
 					defaultValue="king"></FormInput>
-				<FormInput
-					type="email"
-					label="email"
-					name="email"
-					defaultValue="king@gmail.com"></FormInput>
+				<FormInput type="email" label="email" name="email"></FormInput>
 				<div className="relative">
 					<FormInput
 						type={showPassword ? "text" : "password"}
 						label="password"
-						name="password"
-						defaultValue="kingsPass"></FormInput>
+						name="password"></FormInput>
 					{/* Toggle button for show/hide password */}
 					<button
 						type="button"
