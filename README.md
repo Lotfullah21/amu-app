@@ -1,5 +1,7 @@
 # My Project
 
+[AMU-APP](https://amu-app.netlify.app/)
+
 A React-based web application using Tailwind CSS, DaisyUI, Redux, React Query, and Axios for state management, styling, and API interactions. The app implements dynamic routing with React Router and manages themes and cart functionality.
 
 ## Table of Contents
